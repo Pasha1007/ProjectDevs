@@ -69,8 +69,6 @@ body {
     justify-content: start;
 }
 #show-modal {
-    margin-top: 60px;
-    margin-left: 600px;
     display: inline-flex;
     align-items: center;
     font-size: 12px;
@@ -90,7 +88,7 @@ body {
     background: #F0C7A7;
 }
 
-#show-modal:after {
+/* #show-modal:after {
     content: "\e82e";
     font-family: Linearicons-Free;  
     font-style: normal;
@@ -104,7 +102,7 @@ body {
     margin-left: 30px;
     padding-left: 20px;
     border-left: 1px solid;
-}
+} */
 .modal-mask {
     position: fixed;
     z-index: 9998;
@@ -133,7 +131,7 @@ body {
     font-family: Helvetica, Arial, sans-serif;
   }
   
-  .modal-header h3 {
+  .modal-header {
     margin-top: 0;
     color: #42b983;
   }
