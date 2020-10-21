@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
       el: '#app',
       data: { 
         showRes: false,
+        showModal: false,
         title: "Как хорошо вы знаете Киев?",
         questions: [
           {
@@ -61,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
               image: "../assets/images/nikolsobor.jpg"
           },
           {
-              id: 7,  // баг! коли нажати на саме питання(не radio)перекидає на перше запитання і ставить там вибрану відповідь
+              id: 7,  // баг! коли нажати на саме питання(не radio)перекидає на перше запитання і ставить там вибрану відповідь - fixed
               text:"Михайловскому собору более",
               answer1: {
                 id: 0,
