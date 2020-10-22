@@ -3,38 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="stylesheet" href="../assets/styles/css/normalize.css">
     <link rel="stylesheet" href="../assets/styles/css/style.css">
     <title>Как хорошо вы знаете Киев?</title>
-    <!-- <script type="text/x-template" id="modal-template">
-      <transition name="modal">
-        <div class="modal-mask">
-          <div class="modal-wrapper">
-            <div class="modal-container">
-              <div class="modal-header">
-                 <p>{{ results[0] }}</p> 
-              </div>
-              <div class="modal-body">
-                
-              </div>
-              <div class="modal-footer">
-                <slot name="footer">
-                  <button class="modal-default-button" @click="$emit('close')">
-                   Посмотреть ответы
-                  </button>
-                </slot>
-              </div>
-            </div>
-          </div>
-        </div>
-      </transition>
-    </script> -->
 </head>
 <body>
     <div id="app">
         <h1 class="title">{{ title }}</h1>
         <div class="wrapper">
-        <div v-for="(question, index) in questions" :key="question.id" class="question">
+        <div v-if="!showingAnswers" v-for="(question, index) in questions" :key="question.id" class="question">
             <div class="question__inner">
                 <img v-if="question.image" :src="question.image" class="question__image" alt="no imgae :(">
                 <div v-if="question.text">
@@ -67,26 +44,50 @@
             </div>
         
         </div>
-        <div class = "button_wrapper">           
+        <div v-if="!showingAnswers" class = "button_wrapper">           
             <button id="show-modal" @click="checkTest">Проверить тест</button>      
-        <!-- <modal v-if="showRes" @close="showRes = false">
-          <h3 slot="header">custom header</h3>
-        </modal> -->
         </div> 
        <div v-if="showModal" class="modal-mask">
         <div @click.self="showModal = false" class="modal-wrapper">
           <div class="modal-container">
             <p class="modal-header">Ваш результат!</p>
-            <form action="right_answ.html" target="_blank">
-              <button>Посмотреть ответы</button>
-             </form>
+            <p class="modal-content">{{ result }}</p>
+              <button class="modal__btn" @click="showAnswers">Посмотреть ответы</button>
           </div>
         </div>
        </div>
-    </div>
-    
-       
+       <div v-if="showingAnswers">
+        <div v-for="(question, index) in questions" :key="question.id" class="question">
+          <div class="question__inner">
+              <img v-if="question.image" :src="question.image" class="question__image" alt="no imgae :(">
+              <div v-if="question.text">
+                  <p>{{question.id}}. {{ question.text }}</p>
+                  <div>
+                  <form class="question__answers">
+                      <div>                       
+                          <p class = "true_answer">{{ question.rightanswer }}</p>
+                      </div>                   
+                  </form>
+                  </div>
+              </div>
+             
+             
+              <div v-else class="question__text-inline">
+                  <img v-if="question.image1" :src="question.image1" class="question__image" alt="no imgae :(">
+              <div class = "inrow">
+                  <p>{{question.id}}. {{ question.text1 }}</p>
+                 <p class = "true_answer">&ensp;{{ question.answer }}&ensp;</p>
+                  <p>{{ question.text2 }}</p>
+              </div>
+              </div>
+          </div>
       
+      </div>
+      <div v-if="showingAnswers" class = "button_wrapper">           
+        <button id="show-modal" @click="window.location.reload()">На главную!</button>      
+    </div>
+       </div>
+    </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="../scripts/js/main.js"></script>

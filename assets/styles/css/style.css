@@ -140,12 +140,35 @@ margin-top: 50px;
 }
 
 .modal-header {
-  margin-top: 0;
+  margin-top: 5px;
+  text-align: center;
   color: #42b983;
 }
-
+.modal-content {
+  text-align: center;
+  margin: 5px;
+}
 .modal-body {
   margin: 20px 0;
+}
+.modal__btn {
+  display: inline-flex;
+  align-content: center;
+  font-size: 12px;
+  letter-spacing: .05em;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  font-family: 'Montserrat', sans-serif;
+  color: #904C6E;
+  background: white;
+  border: 1px solid;
+  cursor: pointer;
+  transition: .3s linear;
+}
+
+.modal__btn:hover {
+  background: #F0C7A7;
 }
 
 .modal-default-button {
@@ -183,8 +206,8 @@ margin-top: 50px;
 
  .modal-mask 
 {
-min-width: 500px;
-
+  min-width: 500px;
+  min-height: 100%;
 }
 
 }

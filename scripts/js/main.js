@@ -1,19 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
   
   
-  Vue.component("modal", {
-    template: "#modal-template"
-  });
+  // Vue.component("modal", {
+  //   template: "#modal-template"
+  // });
 
  
     new Vue({
       el: '#app',
       data: { 
         answers: [],
-        showRes: false,
+        showingAnswers: false,
         showModal: false,
         count:0,
         title: "Как хорошо вы знаете Киев?",
+        result: '',
         questions: [
           {
                 id: 1,
@@ -166,23 +167,43 @@ document.addEventListener('DOMContentLoaded', function () {
         ]
       },
       methods: {
-             checkTest() 
-             {              
-               this.showModal = true
-               console.log(this.answers)
-               /*for(let i=0;i<this.questions.length;i++)
-               {
-                  if(this.questions.answers[i].correct=true)
-                  { 
-                       this.count++;
+             checkTest(){      
+              this.showModal = true
+              this.answers.forEach((answ, idx) => {
+                question = this.questions[idx]
+                if(question.answer1 && question.answer2) {
+                  let answer = ''
+                  if(question.answer1.id === answ) {
+                    answer = question.answer1
+                  } else if (question.answer2.id === answ) {
+                    answer = question.answer2
                   }
-               }
-               console.log(this.count);*/
+                  if(answer.correct) {
+                    this.count += 1
+                  }
+                } else if (question.answer) {
+                  if( question.answer.trim().toLowerCase() === answ.trim().toLowerCase()) {
+                    this.count += 1
+                  }
+                } else {
+                  return
+                }
+              });
+              if(this.count >= 9 && this.count <= 11) {
+                this.result = this.results[0].restext1 + " " + this.count.toString() + " " + this.results[0].restext2
+              } else if (this.count >= 7 && this.count < 9) {
+                this.result = this.results[1].restext1 + " " + this.count.toString() + " " + this.results[1].restext2
+              } else if (this.count >=5 && this.count < 7) {
+                this.result = this.results[2].restext1 + " " + this.count.toString() + " " + this.results[2].restext2
+              } else if (this.count < 5) {
+                this.result = this.results[3].restext1 + " " + this.count.toString() + " " + this.results[3].restext2
+              }
+             },
+             showAnswers() {
+               this.showingAnswers = true
+               this.showModal = false
              }
       },
-      computed: {
-        // pass
-      }
     })
     
  
