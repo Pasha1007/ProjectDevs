@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     new Vue({
       el: '#app',
       data: { 
+        answers: [],
         showRes: false,
         showModal: false,
         title: "Как хорошо вы знаете Киев?",
@@ -152,7 +153,10 @@ document.addEventListener('DOMContentLoaded', function () {
         ]
       },
       methods: {
-             
+             checkTest() {
+               this.showModal = true
+               console.log(this.answers)
+             }
       },
       computed: {
         // pass

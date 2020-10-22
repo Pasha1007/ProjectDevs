@@ -36,7 +36,7 @@
     <div id="app">
         <h1 class="title">{{ title }}</h1>
         <div class="wrapper">
-        <div v-for="question in questions" :key="question.id" class="question">
+        <div v-for="(question, index) in questions" :key="question.id" class="question">
             <div class="question__inner">
                 <img v-if="question.image" :src="question.image" class="question__image" alt="no imgae :(">
                 <div v-if="question.text">
@@ -44,11 +44,13 @@
                     <div>
                     <form class="question__answers">
                         <div>
-                            <input type="radio" name="answers" :id="question.answer1.id" :value="question.answer1.id">
+                            <input type="radio" v-model="answers[index]" name="answers" 
+                            :id="question.answer1.id" :value="question.answer1.id">
                             <label>{{ question.answer1.text }}</label>
                         </div>
                         <div>
-                            <input type="radio" name="answers" :id="question.answer2.id" :value="question.answer2.id">
+                            <input type="radio" v-model="answers[index]" name="answers" 
+                            :id="question.answer2.id" :value="question.answer2.id">
                             <label>{{ question.answer2.text }}</label>
                         </div>    
                     </form>
@@ -60,7 +62,7 @@
                     <img v-if="question.image1" :src="question.image1" class="question__image" alt="no imgae :(">
                 <div class = "inrow">
                     <p>{{question.id}}. {{ question.text1 }}</p>
-                    <input type="text" placeholder="Ваш вариант" class="question__text-inline__input">
+                    <input v-model="answers[index]" type="text" placeholder="Ваш вариант" class="question__text-inline__input">
                     <p>{{ question.text2 }}</p>
                 </div>
                 </div>
@@ -68,7 +70,7 @@
         
         </div>
         <div >           
-            <button id="show-modal" @click="showModal = true">Проверить тест</button>      
+            <button id="show-modal" @click="checkTest">Проверить тест</button>      
         <!-- <modal v-if="showRes" @close="showRes = false">
           <h3 slot="header">custom header</h3>
         </modal> -->
