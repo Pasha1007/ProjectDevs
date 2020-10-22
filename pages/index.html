@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="../assets/styles/css/style.css">
     <title>Как хорошо вы знаете Киев?</title>
     <!-- <script type="text/x-template" id="modal-template">
@@ -10,15 +11,12 @@
         <div class="modal-mask">
           <div class="modal-wrapper">
             <div class="modal-container">
-
               <div class="modal-header">
                  <p>{{ results[0] }}</p> 
               </div>
-
               <div class="modal-body">
                 
               </div>
-
               <div class="modal-footer">
                 <slot name="footer">
                   <button class="modal-default-button" @click="$emit('close')">
@@ -69,7 +67,7 @@
             </div>
         
         </div>
-        <div >           
+        <div class = "button_wrapper">           
             <button id="show-modal" @click="checkTest">Проверить тест</button>      
         <!-- <modal v-if="showRes" @close="showRes = false">
           <h3 slot="header">custom header</h3>
@@ -79,6 +77,9 @@
         <div @click.self="showModal = false" class="modal-wrapper">
           <div class="modal-container">
             <p class="modal-header">Ваш результат!</p>
+            <form action="right_answ.html" target="_blank">
+              <button>Посмотреть ответы</button>
+             </form>
           </div>
         </div>
        </div>

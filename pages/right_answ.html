@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/styles/css/style.css">
+    <title>Правильные ответы</title>
+</head>
+<body>
+    <div id="app">
+    <div v-for="(question, index) in questions" :key="question.id" class="question">
+        <div class="question__inner">
+            <img v-if="question.image" :src="question.image" class="question__image" alt="no imgae :(">
+            <div v-if="question.text">
+                <p>{{question.id}}. {{ question.text }}</p>
+                <div>
+                <form class="question__answers">
+                    <div>                       
+                        <p class = "true_answer">{{ question.rightanswer }}</p>
+                    </div>                   
+                </form>
+                </div>
+            </div>
+           
+           
+            <div v-else class="question__text-inline">
+                <img v-if="question.image1" :src="question.image1" class="question__image" alt="no imgae :(">
+            <div class = "inrow">
+                <p>{{question.id}}. {{ question.text1 }}</p>
+               <p class = "true_answer">&ensp;{{ question.answer }}&ensp;</p>
+                <p>{{ question.text2 }}</p>
+            </div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="../scripts/js/main.js"></script>
+</body>
+</html>
