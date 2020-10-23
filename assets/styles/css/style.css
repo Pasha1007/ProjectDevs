@@ -88,10 +88,12 @@ body {
 display: block;	
 text-align: center;
 margin-top: 50px;
-
-
 }
-
+.modal_button_wrapper
+{
+  display: block;	
+  text-align: center;
+}
 #show-modal:hover {
   background: #F0C7A7;
 }
@@ -152,8 +154,7 @@ margin-top: 50px;
   margin: 20px 0;
 }
 .modal__btn {
-  display: inline-flex;
-  align-content: center;
+ 
   font-size: 12px;
   letter-spacing: .05em;
   font-weight: 600;
@@ -189,7 +190,10 @@ margin-top: 50px;
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
-
+.true_answer
+{
+font-weight: 600;
+}
 @media screen and (max-width:500px)
 {
 .button_wrapper
@@ -203,15 +207,21 @@ margin-top: 50px;
 { 
   font-size: 16px;   
 }
-
- .modal-mask 
+.modal__btn
 {
-  min-width: 500px;
-  min-height: 100%;
+  
+  font-size: 16px; 
+}
+ .modal-mask
+{
+  
+  position: fixed;
+		top: 0px;
+    left: 0px;    
+    min-width: 500px; 
+ 
+   
 }
 
-}
-.true_answer
-{
-font-weight: 600;
+
 }

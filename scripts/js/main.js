@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
       el: '#app',
       data: { 
         answers: [],
+        showResults: false,
         showingAnswers: false,
         showModal: false,
         count:0,
@@ -167,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ]
       },
       methods: {
-             checkTest(){      
+             checkTest() {      
               this.showModal = true
               this.answers.forEach((answ, idx) => {
                 question = this.questions[idx]
@@ -202,6 +203,10 @@ document.addEventListener('DOMContentLoaded', function () {
              showAnswers() {
                this.showingAnswers = true
                this.showModal = false
+             },
+             showMyRes() {
+              this.showingAnswers = false
+              this.showResults = true
              }
       },
     })
