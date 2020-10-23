@@ -9,9 +9,11 @@
 </head>
 <body>
     <div id="app">
-        <h1 class="title">{{ title }}</h1>
+        <h1 v-if="!showingAnswers && !showResults" class="title">{{ title }}</h1>
+        <h1 v-else-if="showingAnswers && !showResults" class="title">Ответы</h1>
+        <h1 v-else-if="!showingAnswers && showResults" class="title">Мой результат:</h1>
         <div class="wrapper">
-        <div v-if="!showingAnswers" v-for="(question, index) in questions" :key="question.id" class="question">
+        <div v-if="!showingAnswers && !showResults" v-for="(question, index) in questions" :key="question.id" class="question">
             <div class="question__inner">
                 <img v-if="question.image" :src="question.image" class="question__image" alt="no imgae :(">
                 <div v-if="question.text">
@@ -44,7 +46,7 @@
             </div>
         
         </div>
-        <div v-if="!showingAnswers" class = "button_wrapper">           
+        <div v-if="!showingAnswers && !showResults" class = "button_wrapper">           
             <button id="show-modal" @click="checkTest">Проверить тест</button>      
         </div> 
        <div v-if="showModal" class="modal-mask">
@@ -56,7 +58,7 @@
           </div>
         </div>
        </div>
-       <div v-if="showingAnswers">
+       <div v-if="showingAnswers && !showResults">
         <div v-for="(question, index) in questions" :key="question.id" class="question">
           <div class="question__inner">
               <img v-if="question.image" :src="question.image" class="question__image" alt="no imgae :(">
@@ -84,9 +86,49 @@
       
       </div>
       <div v-if="showingAnswers" class = "button_wrapper">           
+        <button id="show-modal" @click="showMyRes">Мой результат</button>      
+    </div>
+
+       </div>
+       <div v-if="showResults" v-for="(question, index) in questions" :key="question.id" class="question">
+        <div class="question__inner">
+            <img v-if="question.image" :src="question.image" class="question__image" alt="no imgae :(">
+            <div v-if="question.text">
+                <p>{{question.id}}. {{ question.text }}</p>
+                <div>
+                <form class="question__answers">
+                    <div>
+                        <input type="radio" v-model="answers[index]" 
+                        :disabled="answers[index] !== question.answer1.id" 
+                        name="answers" 
+                        :id="question.answer1.id" :value="question.answer1.id">
+                        <label>{{ question.answer1.text }}</label>
+                    </div>
+                    <div>
+                        <input type="radio" v-model="answers[index]"
+                        :disabled="answers[index] !== question.answer2.id"  
+                        name="answers" 
+                        :id="question.answer2.id" :value="question.answer2.id">
+                        <label>{{ question.answer2.text }}</label>
+                    </div>    
+                </form>
+                </div>
+            </div>
+           
+           
+            <div v-else class="question__text-inline">
+                <img v-if="question.image1" :src="question.image1" class="question__image" alt="no imgae :(">
+            <div class = "inrow">
+                <p>{{question.id}}. {{ question.text1 }}</p>
+                <input type="text" placeholder="Ваш вариант" :value="answers[index]" disabled="true" class="question__text-inline__input">
+                <p>{{ question.text2 }}</p>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div v-if="showResults" class = "button_wrapper">           
         <button id="show-modal" @click="window.location.reload()">На главную!</button>      
     </div>
-       </div>
     </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
