@@ -47,12 +47,11 @@
         
         </div>
         <div v-if="!showingAnswers && !showResults" class = "button_wrapper">           
-            <button id="show-modal" @click="checkTest">Проверить тест</button>      
+            <button id="show-modal" @click="checkTest">Мои результаты</button>      
         </div> 
        <div v-if="showModal" class="modal-mask">
         <div @click.self="showModal = false" class="modal-wrapper">
           <div class="modal-container">
-            <p class="modal-header">Ваш результат!</p>
             <p class="modal-content">{{ result }}</p>
             <div class="modal_button_wrapper">
               <button class="modal__btn" @click="showAnswers">Посмотреть ответы</button>

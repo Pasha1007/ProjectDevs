@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'OpenSans';
-  src: url(../../fonts/OpenSans-Regular.ttf);
+  font-family: 'Bebas';
+  src: url(../../fonts/BebasRegular.ttf);
 }
 
 * {
@@ -10,7 +10,7 @@
 
 
 body {
-  font-family: 'OpenSans';
+  font-family: 'Bebas';
 }
 
 .title {
@@ -58,7 +58,7 @@ body {
   padding-left: 5px;
   padding-right: 5px;
   border-width: 0;
-  font-family: 'OpenSans';
+  font-family: 'Bebas';
   text-align: center;
   border-bottom: 1px solid gray;
  
@@ -77,11 +77,15 @@ body {
   text-transform: uppercase;
   padding: 12px 20px;
   font-family: 'Montserrat', sans-serif;
-  color: #904C6E;
-  background: white;
+  color: white;
+  
   border: 1px solid;
   cursor: pointer;
   transition: .3s linear;
+  border-radius: 10px;
+  outline: none;
+  background: #5fdb2e;/* здесь можно поменять цвет кнопки если не нравиться  */
+  
 }
 .button_wrapper
 {
@@ -95,7 +99,7 @@ margin-top: 50px;
   text-align: center;
 }
 #show-modal:hover {
-  background: #F0C7A7;
+  background: #e08743;
 }
 
 /* #show-modal:after {
@@ -141,11 +145,7 @@ margin-top: 50px;
   font-family: Helvetica, Arial, sans-serif;
 }
 
-.modal-header {
-  margin-top: 5px;
-  text-align: center;
-  color: #42b983;
-}
+
 .modal-content {
   text-align: center;
   margin: 5px;
@@ -155,17 +155,20 @@ margin-top: 50px;
 }
 .modal__btn {
  
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: .05em;
   font-weight: 600;
   text-transform: uppercase;
   padding: 12px 20px;
-  font-family: 'Montserrat', sans-serif;
-  color: #904C6E;
-  background: white;
+  font-family: 'Bebas', ;
+  color: white;
+  
   border: 1px solid;
   cursor: pointer;
   transition: .3s linear;
+  border-radius: 10px;
+  outline: none;
+  background: #5fdb2e;/* здесь можно поменять цвет кнопки если не нравиться  */
 }
 
 .modal__btn:hover {

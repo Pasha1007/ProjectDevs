@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
         questions: [
           {
                 id: 1,
-                text: "Перед мной (выбрать из двух вариантов):",
+                text: "Перед мной:",
                 answer1: {
                     id: 0,
                     text: "А) Софийский собор и его колокольня",
@@ -147,10 +147,10 @@ document.addEventListener('DOMContentLoaded', function () {
         results:[
         {
           id:1,
-          restext1:"Ваша оценка",
-          restext2:"из 11 – «Класс! Вы отлично знаете город!» С удовольствием помогу Вам узнать еще больше на своих авторских экскурсиях. Думаю, мне есть чем Вас удивить!"
+          restext1:"Вы ответили правильно на",
+          restext2:"из 11 вопросов"
         },
-        {
+      /* {
           id:2,
           restext1:"Ваша оценка",
           restext2:"из 11 – «Вы молодец! Вы хорошо справились с заданием. Немного неточностей, но это все можно исправить. Гуляйте больше по городу» Хотите прогуляемся вместе?"
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
           id:4,
           restext1:"Ваша оценка",
           restext2:"У Вас начальные знания о городе. Хотите я помогу Вам узнать больше?  Резервируйте прогулку, чтобы узнать город лучше и потом с восторгом делиться новыми маршрутами с друзьями."
-        },
+        },*/
         ]
       },
       methods: {
@@ -190,15 +190,15 @@ document.addEventListener('DOMContentLoaded', function () {
                   return
                 }
               });
-              if(this.count >= 9 && this.count <= 11) {
+            // if(this.count >= 9 && this.count <= 11) {
                 this.result = this.results[0].restext1 + " " + this.count.toString() + " " + this.results[0].restext2
-              } else if (this.count >= 7 && this.count < 9) {
+             /* } else if (this.count >= 7 && this.count < 9) {
                 this.result = this.results[1].restext1 + " " + this.count.toString() + " " + this.results[1].restext2
               } else if (this.count >=5 && this.count < 7) {
                 this.result = this.results[2].restext1 + " " + this.count.toString() + " " + this.results[2].restext2
               } else if (this.count < 5) {
                 this.result = this.results[3].restext1 + " " + this.count.toString() + " " + this.results[3].restext2
-              }
+              }*/
              },
              showAnswers() {
                this.showingAnswers = true
